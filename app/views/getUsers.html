@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <td><label for="userId">Id :</label></td>
+    <td><input type="text" id="userId" ng-model="searchUsers.id"></td>
+  </tr>
+  <tr>
+    <td><label for="userName">Name : </label></td>
+    <td><input type="text" id="userName" ng-model="searchUsers.name"></td>
+  </tr>
+  <tr>
+    <td><label for="userSurname">Surname : </label></td>
+    <td><input type="text" id="userSurname" ng-model="searchUsers.surname"></td>
+  </tr>
+</table>
+
+<div ng-repeat="currentUser in searchUser | filter:searchUsers">
+  <a ng-href="#/users/{{currentUser.id}}">
+    <div style="border: solid 2px">
+      <p>Id: {{currentUser.id}}</p>
+      <p>Name: {{currentUser.name}}</p>
+      <p>Surname: {{currentUser.surname}}</p>
+    </div>
+  </a>
+</div>

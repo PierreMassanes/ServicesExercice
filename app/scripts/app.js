@@ -17,15 +17,15 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: '../views/getUsers.html',
+        controller: 'GetUsersCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/addUser' , {
+        templateUrl: 'views/addUser.html',
+        controller: 'AddUserCtrl'
       })
       .when('/users' , {
         templateUrl: 'views/Users/list.html',
@@ -38,4 +38,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);

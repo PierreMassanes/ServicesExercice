@@ -1,4 +1,13 @@
 <div>
-<p>Name: {{currentUser.name}}</p>
-<p>Surname: {{currentUser.surname}}</p>
+  <p>Name: {{currentUser.name}}</p>
+  <p>Surname: {{currentUser.surname}}</p>
+  <p>E-mail: {{currentUser.email}}</p>
+  <p>Website: {{currentUser.website}}</p>
+</div>
+
+<input type="button" value="Supprimer" ng-click="deleteUser(currentUser.id)">
+<input type="button" value="Mettre à jour">
+
+<div ng-if="success">
+  <p>Suppression réussie !</p>
 </div>

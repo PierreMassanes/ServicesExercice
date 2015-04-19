@@ -1,0 +1,27 @@
+<form ng-submit="addUser()">
+  <table>
+    <tr>
+      <td><label for="userName">Name : </label></td>
+      <td><input type="text" id="userName" ng-model="user.name"></td>
+    </tr>
+    <tr>
+      <td><label for="userSurname">Surname : </label></td>
+      <td><input type="text" id="userSurname" ng-model="user.surname"></td>
+    </tr>
+    <tr>
+      <td><label for="userEmail">E-mail : </label></td>
+      <td><input type="text" id="userEmail" ng-model="user.email"></td>
+    </tr>
+    <tr>
+      <td><label for="userWebsite">Website : </label></td>
+      <td><input type="text" id="userWebsite" ng-model="user.website"></td>
+    </tr>
+  </table>
+
+  <input type="submit" id="submit" value="Ajouter">
+</form>
+
+<div ng-if="isAdded">
+  <p>Id : {{newUser.id}}</p>
+</div>
+<p>{{json}}</p>
