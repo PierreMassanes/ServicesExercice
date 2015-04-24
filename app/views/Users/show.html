@@ -5,8 +5,8 @@
   <p>Website: {{currentUser.website}}</p>
 </div>
 
-<input type="button" value="Supprimer" ng-click="deleteUser(currentUser.id)">
-<input type="button" value="Mettre à jour">
+<a ng-click="deleteUser()">Supprimer</a>
+<a ng-href="#/users/{{currentUser.id}}/edit">Mettre à jour</a>
 
 <div ng-if="success">
   <p>Suppression réussie !</p>
