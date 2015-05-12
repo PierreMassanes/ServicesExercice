@@ -19,6 +19,20 @@ angular.module('pooIhmExemplesApp')
           }
         });
 
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects')
+        .success(function(data) {
+          if (data.status == "success") {
+            $scope.projects = data.data;
+          }
+        });
+
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Roles')
+        .success(function(data) {
+          if (data.status == "success") {
+            $scope.roles = data.data;
+          }
+        });
+
       $scope.deleteUser = function(){
         $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/'+$scope.currentUser.id)
           .success(function(){

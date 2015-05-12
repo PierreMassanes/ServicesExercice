@@ -1,24 +1,37 @@
-<form ng-submit="addUser()">
-  <table>
-    <tr>
-      <td><label for="userName">Name : </label></td>
-      <td><input type="text" id="userName" ng-model="user.name"></td>
-    </tr>
-    <tr>
-      <td><label for="userSurname">Surname : </label></td>
-      <td><input type="text" id="userSurname" ng-model="user.surname"></td>
-    </tr>
-    <tr>
-      <td><label for="userEmail">E-mail : </label></td>
-      <td><input type="text" id="userEmail" ng-model="user.email"></td>
-    </tr>
-    <tr>
-      <td><label for="userWebsite">Website : </label></td>
-      <td><input type="text" id="userWebsite" ng-model="user.website"></td>
-    </tr>
-  </table>
+<form class="form-horizontal" ng-submit="addUser()">
 
-  <input type="submit" id="submit" value="Ajouter">
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="userName">Name : </label>
+      <div class="col-sm-10">
+          <input type="text" class="form-control" id="userName" ng-model="user.name" placeholder="Enter name">
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="userSurname">Surname : </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="userSurname" ng-model="user.surname" placeholder="Enter surname">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="userEmail">E-mail : </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="userEmail" ng-model="user.email" placeholder="Enter e-mail">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="userWebsite">Website : </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="userWebsite" ng-model="user.website" placeholder="Enter website">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" class="btn btn-default" id="submit" value="Ajouter">
+    </div>
+  </div>
 </form>
 
 <div ng-if="isAdded">

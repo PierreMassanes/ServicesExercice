@@ -21,6 +21,11 @@ angular.module('pooIhmExemplesApp')
       $scope.isAdded = false;
 
       if($scope.user.name != null && $scope.user.surname != null){
+        if($scope.user.email == "")
+          $scope.user.email = null;
+
+        if($scope.user.website == "")
+          $scope.user.website = null;
 
         $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users/', $scope.user)
           .success(function(data) {

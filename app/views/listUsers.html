@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="well">
+    <div class="form-group">
+      <label for="userId">Id :</label>
+      <input type="text" class="form-control" id="userId" ng-model="searchUsers.id">
+    </div>
+
+    <div class="form-group">
+      <label for="userName">Name : </label>
+      <input type="text" class="form-control" id="userName" ng-model="searchUsers.name">
+    </div>
+
+    <div class="form-group">
+      <label for="userSurname">Surname : </label>
+      <input type="text" class="form-control" id="userSurname" ng-model="searchUsers.surname">
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>E-mail</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="currentUser in searchUser | filter:searchUsers" ng-click="go('/users/'+currentUser.id)" >
+      <td>Id: {{currentUser.id}}</td>
+      <td>Name: {{currentUser.name}}</td>
+      <td>Surname: {{currentUser.surname}}</td>
+      <td>E-mail: {{currentUser.email}}</td>
+      <td>Website: {{currentUser.website}}</td>
+    </tr>
+  </tbody>
+
+</table>

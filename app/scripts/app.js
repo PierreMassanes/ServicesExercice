@@ -20,15 +20,15 @@ angular
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/getUsers.html',
-        controller: 'GetUsersCtrl'
+        templateUrl: '../views/listUsers.html',
+        controller: 'ListUsersCtrl'
       })
       .when('/addUser' , {
         templateUrl: 'views/addUser.html',
         controller: 'AddUserCtrl'
       })
       .when('/users/:userId', {
-        templateUrl: 'views/Users/show.html',
+        templateUrl: 'views/detailUser.html',
         controller: 'UserCtrl'
       })
       .when('/users/:userId/edit', {

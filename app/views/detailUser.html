@@ -1,0 +1,24 @@
+<div>
+  <p>Name: {{currentUser.name}}</p>
+  <p>Surname: {{currentUser.surname}}</p>
+  <p>E-mail: {{currentUser.email}}</p>
+  <p>Website: {{currentUser.website}}</p>
+</div>
+
+<h3>PROJETS</h3>
+
+<div ng-repeat="project in projects">
+  <p>Titre : {{project.title}}</p>
+  <p>Description : {{project.description}}</p>
+  <p>Année : {{project.year}}</p>
+  <p ng-repeat=" role in roles | filter:project.id">Role : {{role.name}}</p>
+</div>
+
+
+
+<a ng-click="deleteUser()">Supprimer</a>
+<a ng-href="#/users/{{currentUser.id}}/edit">Mettre à jour</a>
+
+<div ng-if="success">
+  <p>Suppression réussie !</p>
+</div>
