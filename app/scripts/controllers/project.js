@@ -27,6 +27,7 @@ angular.module('pooIhmExemplesApp')
         });
 
       $scope.getUserRole = function(userId){
+
         $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + userId + '/Roles')
           .success(function(data) {
             if (data.status == "success") {
