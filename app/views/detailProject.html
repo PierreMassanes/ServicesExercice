@@ -1,0 +1,17 @@
+<div>
+  <p>Id: {{project.id}}</p>
+  <p>Title: {{project.title}}</p>
+  <p>Year: {{project.year}}</p>
+  <p>Description: {{project.description}}</p>
+</div>
+
+<h3>USERS</h3>
+
+<div ng-repeat="user in users" ng-init="getUserRole(user.id)">
+  <p>Id : {{user.id}}</p>
+  <p>Name : {{user.name}}</p>
+  <p>Surname : {{user.surname}}</p>
+  <p>E-mail : {{user.email}}</p>
+  <p>Website : {{user.website}}</p>
+  <p ng-repeat=" role in getUserRole(user.id)" ng-if="role.ProjectId == project.id" >Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
+</div>

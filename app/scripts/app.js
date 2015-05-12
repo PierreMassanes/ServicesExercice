@@ -23,6 +23,10 @@ angular
         templateUrl: '../views/listUsers.html',
         controller: 'ListUsersCtrl'
       })
+      .when('/users', {
+        templateUrl: '../views/listUsers.html',
+        controller: 'ListUsersCtrl'
+      })
       .when('/addUser' , {
         templateUrl: 'views/addUser.html',
         controller: 'AddUserCtrl'
@@ -35,6 +39,15 @@ angular
         templateUrl: 'views/editUser.html',
         controller: 'UserCtrl'
       })
+      .when('/projects', {
+        templateUrl: '../views/listProjects.html',
+        controller: 'ListProjectsCtrl'
+      })
+      .when('/projects/:projectId', {
+        templateUrl: 'views/detailProject.html',
+        controller: 'ProjectCtrl'
+      })
+
       .otherwise({
         redirectTo: '/'
       });

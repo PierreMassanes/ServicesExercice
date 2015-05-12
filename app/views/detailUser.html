@@ -1,4 +1,5 @@
 <div>
+  <p>Id : {{currentUser.id}}</p>
   <p>Name: {{currentUser.name}}</p>
   <p>Surname: {{currentUser.surname}}</p>
   <p>E-mail: {{currentUser.email}}</p>
@@ -8,12 +9,14 @@
 <h3>PROJETS</h3>
 
 <div ng-repeat="project in projects">
+  <p>Id : {{project.id}} </p>
   <p>Titre : {{project.title}}</p>
   <p>Description : {{project.description}}</p>
   <p>Année : {{project.year}}</p>
-  <p ng-repeat=" role in roles | filter:project.id">Role : {{role.name}}</p>
+  <p ng-repeat=" role in roles" ng-if="role.ProjectId == project.id">Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
 </div>
 
+<p ng-repeat=" role in roles">Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
 
 
 <a ng-click="deleteUser()">Supprimer</a>
