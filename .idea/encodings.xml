@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/project.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/addUser.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/detailProject.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/listProjects.html" charset="UTF-8" />
