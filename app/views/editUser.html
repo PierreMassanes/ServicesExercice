@@ -1,1 +1,41 @@
-<p>UPDATE</p>
+<div class="well">
+  <form class="form-horizontal" ng-submit="updateUser()">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="userName">Name : </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="userName" ng-model="currentUser.name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="userSurname">Surname : </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="userSurname" ng-model="currentUser.surname">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="userEmail">E-mail : </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="userEmail" ng-model="currentUser.email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="userWebsite">Website : </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="userWebsite" ng-model="currentUser.website">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" class="btn btn-success" id="submit" value="Update">
+        <a class="btn btn-default" ng-href="#/users/{{currentUser.id}}">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{currentUser}}
+{{newUser}}

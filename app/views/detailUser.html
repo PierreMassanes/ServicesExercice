@@ -1,7 +1,10 @@
-<div class="well text-center">
+<div class="well text-center" ng-init="styleDisable='btn btn-primary'">
   <h3>{{currentUser.surname}} <strong>{{currentUser.name}}</strong> <small>(id : {{currentUser.id}})</small></h3>
   <p ng-if="currentUser.email">E-mail: {{currentUser.email}}</p>
   <p ng-if="currentUser.website">Website: <a href="{{currentUser.website}}">{{currentUser.website}}</a></p>
+
+  <a class="btn btn-primary" ng-href="#/users/{{currentUser.id}}/edit">Update</a>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">Delete</button>
 </div>
 
 <h3>Projects :</h3>
@@ -19,12 +22,30 @@
   </div>
 </div>
 
-<a ng-click="deleteUser()">Supprimer</a>
-<a ng-href="#/users/{{currentUser.id}}/edit">Mettre à jour</a>
-
 <div ng-if="success">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <div class="alert alert-success">
     Suppression <strong>réussie !</strong>
+  </div>
+</div>
+
+
+<!-- Popup to warn when deleting the user -->
+<div id="modalDelete" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><strong class="text-danger">Delete</strong> user <strong>{{currentUser.surname}} {{currentUser.name}}</strong> ?</h4>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to <span class="text-danger">delete</span> the user <strong>{{currentUser.surname}} {{currentUser.name}}</strong> ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="deleteUser()">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>

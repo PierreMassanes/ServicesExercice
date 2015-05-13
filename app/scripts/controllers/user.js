@@ -40,19 +40,9 @@ angular.module('pooIhmExemplesApp')
           });
       }
 
-     /*   $scope.updUser = {
-        id: $scope.currentUser.id,
-        name: $scope.currentUser.name,
-        surname: $scope.currentUser.surname,
-        email: $scope.currentUser.email,
-        website: $scope.currentUser.website,
-        createdAt: $scope.currentUser.createdAt,
-        updatedAt: $scope.currentUser.updatedAt
-      }*/
-
       $scope.updateUser = function(){
-        if($scope.updUser.name != null && $scope.updUser.surname != null){
-          $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/'+$scope.currentUser.id, $scope.updUser)
+        if($scope.currentUser.name != null && $scope.currentUser.surname != null){
+          $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/'+$scope.currentUser.id, $scope.currentUser)
             .success(function(data) {
               $scope.newUser = data.data;
             });
