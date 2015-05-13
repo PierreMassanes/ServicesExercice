@@ -1,17 +1,22 @@
-<div>
-  <p>Id: {{project.id}}</p>
-  <p>Title: {{project.title}}</p>
-  <p>Year: {{project.year}}</p>
-  <p>Description: {{project.description}}</p>
+<div class="well text-center">
+  <h3><strong>{{project.title}}</strong> <small>(id : {{project.id}})</small></h3>
+  <p ng-if="project.year">Year {{project.year}}</p>
+  <p ng-if="project.description">Description: {{project.description}}</p>
 </div>
 
-<h3>USERS</h3>
+<h3>Users :</h3>
 
-<div ng-repeat="user in users">
-  <p>Id : {{user.id}}</p>
-  <p>Name : {{user.name}}</p>
-  <p>Surname : {{user.surname}}</p>
-  <p>E-mail : {{user.email}}</p>
-  <p>Website : {{user.website}}</p>
-  <p ng-repeat=" role in roles" ng-if="(role.ProjectId == project.id) && (role.UserId == user.id)" >Role : {{role.name}} </p>
+<div ng-repeat="user in users" ng-init="checked = false">
+
+  <div class="panel panel-default">
+    <div class="panel-heading hover-hand" ng-click="checked = !checked">{{user.surname}} {{user.name}}</div>
+    <div class="panel-body animate-show" ng-show="checked">
+      <p>Id : {{user.id}}</p>
+      <p>Name : {{user.name}}</p>
+      <p>Surname : {{user.surname}}</p>
+      <p ng-if="user.email">E-mail : {{user.email}}</p>
+      <p ng-if="user.website">Website : {{user.website}}</p>
+      <p ng-repeat=" role in roles" ng-if="(role.ProjectId == project.id) && (role.UserId == user.id)" >Role : {{role.name}} </p>
+    </div>
+  </div>
 </div>
