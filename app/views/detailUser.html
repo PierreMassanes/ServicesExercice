@@ -20,5 +20,8 @@
 <a ng-href="#/users/{{currentUser.id}}/edit">Mettre à jour</a>
 
 <div ng-if="success">
-  <p>Suppression réussie !</p>
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <div class="alert alert-success">
+    Suppression <strong>réussie !</strong>
+  </div>
 </div>
