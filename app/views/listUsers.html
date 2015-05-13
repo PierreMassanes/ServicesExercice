@@ -32,11 +32,11 @@
   </thead>
   <tbody>
     <tr ng-repeat="currentUser in searchUser | filter:searchUsers" ng-click="go('/users/'+currentUser.id)" >
-      <td>Id: {{currentUser.id}}</td>
-      <td>Name: {{currentUser.name}}</td>
-      <td>Surname: {{currentUser.surname}}</td>
-      <td>E-mail: {{currentUser.email}}</td>
-      <td>Website: {{currentUser.website}}</td>
+      <td>{{currentUser.id}}</td>
+      <td>{{currentUser.name}}</td>
+      <td>{{currentUser.surname}}</td>
+      <td>{{currentUser.email}}</td>
+      <td>{{currentUser.website}}</td>
     </tr>
   </tbody>
 

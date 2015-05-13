@@ -13,11 +13,8 @@
   <p>Titre : {{project.title}}</p>
   <p>Description : {{project.description}}</p>
   <p>Année : {{project.year}}</p>
-  <p ng-repeat=" role in roles" ng-if="role.ProjectId == project.id">Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
+  <p ng-repeat=" role in roles" ng-if="role.ProjectId == project.id">Role : {{role.name}}</p>
 </div>
-
-<p ng-repeat=" role in roles">Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
-
 
 <a ng-click="deleteUser()">Supprimer</a>
 <a ng-href="#/users/{{currentUser.id}}/edit">Mettre à jour</a>

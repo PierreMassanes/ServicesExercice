@@ -13,5 +13,5 @@
   <p>Surname : {{user.surname}}</p>
   <p>E-mail : {{user.email}}</p>
   <p>Website : {{user.website}}</p>
-  <p ng-repeat=" role in getUserRole(user.id)" ng-if="role.ProjectId == project.id" >Role : {{role.id}} {{role.ProjectId}} {{role.UserId}} {{role.name}}</p>
+  <p ng-repeat=" role in roles" ng-if="(role.ProjectId == project.id) && (role.UserId == user.id)" >Role : {{role.name}} </p>
 </div>

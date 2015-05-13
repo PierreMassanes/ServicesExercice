@@ -30,9 +30,9 @@
   </thead>
   <tbody>
     <tr ng-repeat="project in projects | filter:searchProject" ng-click="go('/projects/'+project.id)" >
-      <td>Id: {{project.id}}</td>
-      <td>Title: {{project.title}}</td>
-      <td>Year: {{project.year}}</td>
+      <td>{{project.id}}</td>
+      <td>{{project.title}}</td>
+      <td>{{project.year}}</td>
     </tr>
   </tbody>
 
