@@ -20,8 +20,6 @@ angular.module('pooIhmExemplesApp')
     $scope.newProjects = [];
 
     $scope.addUser = function(){
-      $scope.isAdded = false;
-
       if($scope.user.name != null && $scope.user.surname != null){
         if($scope.user.email == "")
           $scope.user.email = null;
@@ -31,8 +29,7 @@ angular.module('pooIhmExemplesApp')
 
         $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users/', $scope.user)
           .success(function(data) {
-            $scope.isAdded = true;
-            $scope.newUser = data.data;
+            $scope.success = true;
           });
       }
 

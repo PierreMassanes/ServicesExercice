@@ -45,7 +45,7 @@ angular
       })
       .when('/projects/add' , {
         templateUrl: '../views/projects/addProject.html',
-        controller: 'AddProjectCtrl'
+        controller: 'ProjectCtrl'
       })
       .when('/projects/:projectId', {
         templateUrl: '../views/projects/detailProject.html',
