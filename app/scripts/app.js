@@ -29,7 +29,7 @@ angular
       })
       .when('/users/add' , {
         templateUrl: '../views/users/addUser.html',
-        controller: 'AddUserCtrl'
+        controller: 'UserCtrl'
       })
       .when('/users/:userId', {
         templateUrl: '../views/users/detailUser.html',

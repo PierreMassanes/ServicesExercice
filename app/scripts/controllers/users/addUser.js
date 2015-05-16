@@ -17,6 +17,8 @@ angular.module('pooIhmExemplesApp')
       website: null
     };
 
+    $scope.newProjects = [];
+
     $scope.addUser = function(){
       $scope.isAdded = false;
 
@@ -33,6 +35,14 @@ angular.module('pooIhmExemplesApp')
             $scope.newUser = data.data;
           });
       }
+
+    }
+
+    $scope.addProjectToUser = function(){
+
+    }
+
+    $scope.removeProjectFromUser = function(){
 
     }
 

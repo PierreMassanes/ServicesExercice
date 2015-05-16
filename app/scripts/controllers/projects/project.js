@@ -26,7 +26,7 @@ angular.module('pooIhmExemplesApp')
           }
         });
 
-      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Roles')
+      $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + $routeParams.projectId + '/Roles')
         .success(function(data) {
           if (data.status == "success") {
             $scope.roles = data.data;
@@ -34,7 +34,7 @@ angular.module('pooIhmExemplesApp')
         });
 
       $scope.deleteProject = function(){
-        $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Project/'+$scope.project.id)
+        $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+ $routeParams.projectId)
           .success(function(){
             $scope.success = true;
           });
@@ -44,7 +44,7 @@ angular.module('pooIhmExemplesApp')
         if($scope.project.title != null && $scope.project.title != ""){
           $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+$scope.project.id, $scope.project)
             .success(function(data) {
-
+              $scope.success = true;
             });
         }
       }

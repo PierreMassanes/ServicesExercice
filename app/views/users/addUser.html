@@ -1,5 +1,7 @@
-<div class="container">
-  <div class="well">
+
+<div class="well">
+
+  <div class="container">
     <form class="form-horizontal" ng-submit="addUser()">
 
       <div class="form-group">
@@ -29,6 +31,20 @@
           <input type="text" class="form-control" id="userWebsite" ng-model="user.website" placeholder="Enter website">
         </div>
       </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="userProjects">Projects : </label>
+        <div class="col-sm-10">
+          <select class="form-control" id="userProjects">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
           <input type="submit" class="btn btn-success" id="submit" value="Add user">
@@ -38,10 +54,27 @@
     </form>
   </div>
 
+
+
+  <div ng-repeat="project in newProjects" ng-init="checked = false">
+
+    <div class="panel panel-default">
+      <div class="panel-heading hover-hand" ng-click="checked = !checked">Projet : {{project.title}}</div>
+      <div class="panel-body animate-show" ng-show="checked">
+        <p>Titre : {{project.title}}</p>
+        <p>Description : {{project.description}}</p>
+        <p>Année : {{project.year}}</p>
+        <p ng-repeat=" role in roles" ng-if="role.ProjectId == project.id">Role : {{role.name}}</p>
+      </div>
+    </div>
+  </div>
+
   <div ng-if="isAdded">
     <div class="alert alert-success">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       Ajout <strong>réussi !</strong>
     </div>
   </div>
+
+
 </div>

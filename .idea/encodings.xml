@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/addProject.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/project.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/showProject.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/users/addUser.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/users/showUser.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/scripts/controllers/users/user.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
