@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/app/scripts/controllers/project.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/scripts/controllers/user.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/addProject.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/project.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/projects/showProject.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/users/showUser.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/scripts/controllers/users/user.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/styles/main.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/addUser.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/detailProject.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/editUser.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/listProjects.html" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/views/listUsers.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/projects/addProject.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/projects/detailProject.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/projects/editProject.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/projects/listProjects.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/users/addUser.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/users/editUser.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/users/listUsers.html" charset="UTF-8" />
   </component>
 </project>

@@ -20,31 +20,39 @@ angular
   .config(['$routeProvider',function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '../views/listUsers.html',
+        templateUrl: '../views/users/listUsers.html',
         controller: 'ListUsersCtrl'
       })
       .when('/users', {
-        templateUrl: '../views/listUsers.html',
+        templateUrl: '../views/users/listUsers.html',
         controller: 'ListUsersCtrl'
       })
-      .when('/addUser' , {
-        templateUrl: 'views/addUser.html',
+      .when('/users/add' , {
+        templateUrl: '../views/users/addUser.html',
         controller: 'AddUserCtrl'
       })
       .when('/users/:userId', {
-        templateUrl: 'views/detailUser.html',
+        templateUrl: '../views/users/detailUser.html',
         controller: 'UserCtrl'
       })
       .when('/users/:userId/edit', {
-        templateUrl: 'views/editUser.html',
+        templateUrl: '../views/users/editUser.html',
         controller: 'UserCtrl'
       })
       .when('/projects', {
-        templateUrl: '../views/listProjects.html',
+        templateUrl: '../views/projects/listProjects.html',
         controller: 'ListProjectsCtrl'
       })
+      .when('/projects/add' , {
+        templateUrl: '../views/projects/addProject.html',
+        controller: 'AddProjectCtrl'
+      })
       .when('/projects/:projectId', {
-        templateUrl: 'views/detailProject.html',
+        templateUrl: '../views/projects/detailProject.html',
+        controller: 'ProjectCtrl'
+      })
+      .when('/projects/:projectId/edit', {
+        templateUrl: '../views/projects/editProject.html',
         controller: 'ProjectCtrl'
       })
 

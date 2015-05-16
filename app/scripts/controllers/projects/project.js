@@ -32,5 +32,21 @@ angular.module('pooIhmExemplesApp')
             $scope.roles = data.data;
           }
         });
+
+      $scope.deleteProject = function(){
+        $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Project/'+$scope.project.id)
+          .success(function(){
+            $scope.success = true;
+          });
+      }
+
+      $scope.updateProject = function(){
+        if($scope.project.title != null && $scope.project.title != ""){
+          $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+$scope.project.id, $scope.project)
+            .success(function(data) {
+
+            });
+        }
+      }
     }
   }]);
