@@ -12,6 +12,7 @@ angular.module('pooIhmExemplesApp')
 
     $scope.project = {
       title: null,
+      description:null,
       year: null
     };
 

@@ -18,7 +18,6 @@ angular.module('pooIhmExemplesApp')
     };
 
     $scope.newProjects = [];
-
     $scope.addUser = function(){
       if($scope.user.name != null && $scope.user.surname != null){
         if($scope.user.email == "")
@@ -29,19 +28,32 @@ angular.module('pooIhmExemplesApp')
 
         $http.post('http://poo-ihm-2015-rest.herokuapp.com/api/Users/', $scope.user)
           .success(function(data) {
-            $scope.success = true;
-          });
-      }
+            $scope.user = data.data;
 
-    }
+            angular.forEach($scope.newProjects, function(newProj){
+              $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+newProj.id+'/Users/'+$scope.user.id, $scope.user)
+                .success(function (data) {
+                  $scope.success = true;
+                });
+            });
+
+          });
+        }
+    };
+
+    $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
+      .success(function(data) {
+        $scope.projects = data.data;
+      });
 
     $scope.addProjectToUser = function(){
+      if(($scope.newProjects.indexOf($scope.selectProject) == -1) && $scope.selectProject.id != null)
+        $scope.newProjects.push($scope.selectProject);
+    };
 
-    }
-
-    $scope.removeProjectFromUser = function(){
-
-    }
+    $scope.removeProjectFromUser = function(index){
+      $scope.newProjects.splice(index, 1);
+    };
 
     if($routeParams.userId) {
 
@@ -55,7 +67,7 @@ angular.module('pooIhmExemplesApp')
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects')
         .success(function(data) {
           if (data.status == "success") {
-            $scope.projects = data.data;
+            $scope.userProjects = data.data;
           }
         });
 

@@ -9,11 +9,12 @@
 
 <h3>Projects :</h3>
 
-<div ng-repeat="project in projects" ng-init="checked = false">
+<div ng-repeat="project in userProjects" ng-init="checked = false">
 
   <div class="panel panel-default">
     <div class="panel-heading hover-hand" ng-click="checked = !checked">Projet : {{project.title}}</div>
     <div class="panel-body animate-show" ng-show="checked">
+      <p>Id : {{project.id}}</p>
       <p>Titre : {{project.title}}</p>
       <p>Description : {{project.description}}</p>
       <p>Année : {{project.year}}</p>
