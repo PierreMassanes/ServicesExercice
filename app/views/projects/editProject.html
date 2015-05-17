@@ -1,32 +1,75 @@
 <div class="well">
-  <form class="form-horizontal" ng-submit="updateProject()">
+  <div class="container">
+    <form class="form-horizontal" ng-submit="updateProject()">
 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="projectTitle">Title : </label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="projectTitle" ng-model="project.title">
+      <!-- Form fields -->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="projectTitle">Title : </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="projectTitle" ng-model="currentProject.title">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="projectYear">Year : </label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="projectYear" ng-model="project.year">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="projectYear">Year : </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="projectYear" ng-model="currentProject.year">
+        </div>
       </div>
-    </div>
 
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" class="btn btn-success" id="submit" value="Update">
-        <a class="btn btn-default" ng-href="#/projects/{{project.id}}">Cancel</a>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="projectDescription">Description: </label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="projectDescription" ng-model="currentProject.description">
+          </textarea>
+        </div>
       </div>
-    </div>
-  </form>
-</div>
 
-<div ng-if="success">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <div class="alert alert-success">
-    Update <strong>successful !</strong>
+      <!-- Select to add users to the project -->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="projectUsers">Users : </label>
+        <div class="col-sm-8">
+          <select class="form-control" id="projectUsers" ng-model="selectUser" ng-options="user.surname+' '+user.name for user in users">
+          </select>
+        </div>
+        <div class="col-sm-2">
+          <input type="button" class="btn btn-primary" value="Add user" ng-click="addUserToProject()">
+        </div>
+      </div>
+
+      <!-- Show the users we want to add to the project -->
+      <div ng-repeat="user in newUsers" ng-init="checked = false">
+        <div class="panel panel-info">
+          <div class="panel-heading hover-hand" ng-click="checked = !checked">
+            <a class="close" aria-label="close" ng-click="removeUserFromProject($index)">&times;</a>
+            {{user.surname}} {{user.name}}
+          </div>
+          <div class="panel-body animate-show" ng-show="checked">
+            <p>Id : {{user.id}}</p>
+            <p>Name : {{user.name}}</p>
+            <p>Surname : {{user.surname}}</p>
+            <p ng-if="user.email">E-mail : {{user.email}}</p>
+            <p ng-if="user.website">Website : {{user.website}}</p>
+            <p ng-repeat=" role in roles" ng-if="role.UserId == user.id" >Role : {{role.name}} </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form buttons (submit & cancel) -->
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" class="btn btn-success" id="submit" value="Update">
+          <a class="btn btn-default" ng-href="#/projects/{{project.id}}">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Message shown when it's successful -->
+  <div ng-if="success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <div class="alert alert-success">
+      Update <strong>successful !</strong>
+    </div>
   </div>
 </div>

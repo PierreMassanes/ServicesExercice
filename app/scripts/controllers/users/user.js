@@ -17,6 +17,7 @@ angular.module('pooIhmExemplesApp')
       website: null
     };
 
+    /* Add a user */
     $scope.newProjects = [];
     $scope.addUser = function(){
       if($scope.user.name != null && $scope.user.surname != null){
@@ -41,22 +42,38 @@ angular.module('pooIhmExemplesApp')
         }
     };
 
+    /* Get all projects */
     $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Projects')
       .success(function(data) {
         $scope.projects = data.data;
       });
 
     $scope.addProjectToUser = function(){
-      if(($scope.newProjects.indexOf($scope.selectProject) == -1) && $scope.selectProject.id != null)
+      var toAdd = true;
+      angular.forEach($scope.newProjects, function(proj){
+        if(proj.id == $scope.selectProject.id){
+          toAdd = false;
+          return;
+        }
+      });
+
+      if(toAdd)
         $scope.newProjects.push($scope.selectProject);
+      /*if(($scope.newProjects.indexOf($scope.selectProject) == -1) && $scope.selectProject.id != null)
+        $scope.newProjects.push($scope.selectProject);*/
     };
 
     $scope.removeProjectFromUser = function(index){
       $scope.newProjects.splice(index, 1);
     };
 
+
+
+
+    /* ******************************* When showing a specific user *********************************** */
     if($routeParams.userId) {
 
+      /* Get the user */
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId)
         .success(function(data) {
           if (data.status == "success") {
@@ -64,13 +81,16 @@ angular.module('pooIhmExemplesApp')
           }
         });
 
+      /* Get the user's projects */
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Projects')
         .success(function(data) {
           if (data.status == "success") {
             $scope.userProjects = data.data;
+            $scope.newProjects = angular.copy($scope.userProjects);
           }
         });
 
+      /* Get the user's roles */
       $http.get('http://poo-ihm-2015-rest.herokuapp.com/api/Users/' + $routeParams.userId + '/Roles')
         .success(function(data) {
           if (data.status == "success") {
@@ -78,6 +98,7 @@ angular.module('pooIhmExemplesApp')
           }
         });
 
+      /* Delete the current user */
       $scope.deleteUser = function(){
         $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Users/'+ $routeParams.userId)
           .success(function(){
@@ -85,14 +106,29 @@ angular.module('pooIhmExemplesApp')
           });
       }
 
+      /* Update the current user */
       $scope.updateUser = function(){
         if($scope.currentUser.name != null && $scope.currentUser.surname != null){
           $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Users/'+$scope.currentUser.id, $scope.currentUser)
             .success(function(data) {
-              $scope.success = true;
+
+              angular.forEach($scope.userProjects, function(proj){
+                $http.delete('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/' + proj.id + '/Users/' + $routeParams.userId)
+                  .success(function(){
+                    $scope.success = true;
+                  })
+              });
+
+              angular.forEach($scope.newProjects, function(proj){
+                $http.put('http://poo-ihm-2015-rest.herokuapp.com/api/Projects/'+proj.id+'/Users/'+ $routeParams.userId, $scope.currentUser)
+                  .success(function (data) {
+                    $scope.success = true;
+                  });
+              });
+
             });
         }
-      }
+      };
 
     }
   }]);
